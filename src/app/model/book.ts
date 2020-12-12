@@ -1,9 +1,9 @@
 export class Book {
-  private isban: string;
-  private title: string;
-  private auteur: string;
-  private date_publication: Date;
-  private prix: number;
+  isban: string;
+  title: string;
+  auteur: string;
+  date_publication: Date;
+  prix: number;
 
   constructor(isban, title, auteur, date_pulication, prix){
     this.isban = isban;

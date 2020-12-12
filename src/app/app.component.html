@@ -15,12 +15,11 @@
     <tbody>
       <tr *ngFor="let b of books;let indice = index;">
         <th scope="row">{{b.isban}}</th>
-        <td>{{b.title}}</td>
-        <td>{{b.date_publication}}</td>
-        <td>{{b.prix}}</td>
+        <td>{{b.title | titlecase}}</td>
+        <td>{{b.date_publication | date:'dd/MM/yyyy'}}</td>
+        <td>{{b.prix | number : '1.2-2'}}</td>
         <td><input type="button" class="btn btn-info" value="Editer" (click)="showEdit(indice)"></td>
         <td><input type="button" class="btn btn-danger" value="Supprimer" (click)="deleteBook(indice)"></td>
-
       </tr>
     </tbody>
   </table>

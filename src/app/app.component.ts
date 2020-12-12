@@ -19,11 +19,13 @@ export class AppComponent implements OnInit {
     this.books.push(book);
     this.saveBooks();
     console.log(this.books);
+    this.setAction('');
   }
 
   editBook(book : Book){
     this.books[this.activeBook] = book;
     this.saveBooks();
+    this.setAction('');
   }
 
   showEdit(indice : number){

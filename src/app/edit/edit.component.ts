@@ -17,7 +17,7 @@ export class EditComponent implements OnInit {
       isban.value,
       titre.value,
       auteur.value,
-      date_publication.value,
+      new Date(date_publication.value),
       prix.value
     );
 
