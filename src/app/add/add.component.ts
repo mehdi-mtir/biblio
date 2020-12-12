@@ -33,6 +33,7 @@ export class AddComponent{
   createBook(f : NgForm){
     console.log(f);
     const formValues = f.value;
+    typeof(formValues);
     let book = new Book(
       formValues.isban,
       formValues.title,

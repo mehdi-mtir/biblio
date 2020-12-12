@@ -1,26 +1,28 @@
 <h1>Editer un livre</h1>
-  <form>
-    <div class="form-group">
+  <form [formGroup]="editFormGroup" (ngSubmit)="prepareToEditBook()">
+    <div class="form-group" >
       <label for="isban">ISBAN</label>
-      <input type="text" class="form-control" id="isban" value="{{activeBook.isban}}" #isban>
+      <input type="text" class="form-control" id="isban" formControlName="isban" >
+      <span class="error" *ngIf="editFormGroup.controls.isban.invalid && editFormGroup.controls.isban.errors.required && editFormGroup.controls.isban.touched">Champ obligatoire</span>
+      <span class="error" *ngIf="editFormGroup.controls.isban.invalid && editFormGroup.controls.isban.errors.pattern && editFormGroup.controls.isban.touched">Format invalide</span>
     </div>
     <div class="form-group">
       <label for="title">Titre</label>
-      <input type="text" class="form-control" id="title" value="{{activeBook.title}}" #title>
+      <input type="text" class="form-control" id="title"  name="title" formControlName="title">
     </div>
     <div class="form-group">
       <label for="auteur">Auteur</label>
-      <input type="text" class="form-control" id="auteur" value="{{activeBook.auteur}}" #auteur>
+      <input type="text" class="form-control" id="auteur"  name="auteur" formControlName="auteur" >
     </div>
     <div class="form-group">
       <label for="date_publication">Date de publication</label>
-      <input type="date" class="form-control" id="date_publication" value="{{activeBook.date_publication}}" #date_pub>
+      <input type="date" class="form-control" id="date_publication" name="date_publication" formControlName="date_publication"  >
     </div>
     <div class="form-group">
       <label for="prix">Prix</label>
-      <input type="text" class="form-control" id="prix" value="{{activeBook.prix}}" #prix>
+      <input type="text" class="form-control" id="prix" name="prix" formControlName="prix"  >
     </div>
     <div class="form-group">
-      <input type="button" value="Editer"  class="btn btn-primary" id="btnEdit" (click)="prepareToEditBook(isban, title, auteur, date_pub, prix)">
+      <input type="submit" value="Editer"  class="btn btn-primary" id="btnEdit" [disabled]="editFormGroup.invalid" >
     </div>
   </form>
